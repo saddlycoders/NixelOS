@@ -11,6 +11,4 @@
 
 void kmain(void);
 
-
-
 #endif
