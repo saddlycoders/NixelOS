@@ -61,6 +61,13 @@ void terminal_write(const char* data, size_t size) {
 	{
 		terminal_putchar(data[i]);
 	}
+}
+
+void terminal_writef(const char* data, size_t size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		terminal_putchar(data[i]);
+	}
 	for (size_t i = 0; i < VGA_WIDTH - size; i++)
 	{
 		terminal_putchar(' ');
@@ -71,6 +78,9 @@ void terminal_writestring(const char* data) {
 	terminal_write(data, strlen(data));
 }
 
+void terminal_writestringf(const char* data) {
+	terminal_writef(data, strlen(data));
+}
 size_t strlen(const char* str) {
 	size_t len = 0;
 	while (str[len])

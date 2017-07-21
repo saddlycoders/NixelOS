@@ -11,14 +11,13 @@
 
 void print(char* message, int color)
 {
-	char* mem = (char*)(0xb8000);
-	while(*message != 0)
-	{
-	   *mem = *message;
-        mem++;
-        message++;
-        *mem = (char*)color;
-		mem++;
-	}
+	terminal_setcolor(color);
+	terminal_writestring(message);
+}
+
+void printf(char* message, int color)
+{
+	terminal_setcolor(color);
+	terminal_writestringf(message);
 }
 
