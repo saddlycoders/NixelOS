@@ -18,16 +18,16 @@ void kmain(void)
 {
 
 	//--------------------------MAIN--------------------//
-	write_log('[LOG]Kernel started');
+	write_log('[System]Kernel started');
 	
 	terminal_initialize();
 	
     printf("NixelOS kernel loaded",0xA);	
-	print("[Warning]",0xE);
-    print("You use an unstable OS version compiled on GitHub",0x7);	
+	printf("[Warning]You use an unstable OS version compiled on GitHub",0xE);
 
 	
-
+    launch_shell();
+ 
 	while(1);
 }
 
