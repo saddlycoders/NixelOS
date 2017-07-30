@@ -26,7 +26,8 @@ void kmain(void)
 	printf("[Warning]You use an unstable OS version compiled on GitHub",0xE);
 
 	
-    launch_shell();
+	putpixel(10,10,0xA);
+    //launch_shell();
  
 	while(1);
 }
