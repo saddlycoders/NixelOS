@@ -10,4 +10,5 @@ If you have Windows run make_win.bat
 
 # Contact
 Main Delevoper E-Mail: none
+
 Group in VKontakte: vk.com/diam_soft
