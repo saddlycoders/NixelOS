@@ -3,7 +3,9 @@ NixelOS - OS Written in C and Assembly Laungage
 
 # How to compile
 Create in the project folder binary folder
+
 If you have Linux run makelinux
+
 If you have Windows run make_win.bat
 
 # Contact
