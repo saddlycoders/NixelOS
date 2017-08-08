@@ -4,12 +4,11 @@
   (C) DiamondSoft (R) NixelOS 2017 - 2018 y.
   
 */
-#ifndef KERNEL_H
-#define KERNEL_H
+#ifndef INIT_H
+#define INIT_H
 
 #include <stdint.h>
 
-extern "C" int kmain();
-
+int modules_init();
 
 #endif

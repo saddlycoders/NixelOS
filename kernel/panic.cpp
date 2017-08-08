@@ -4,12 +4,14 @@
   (C) DiamondSoft (R) NixelOS 2017 - 2018 y.
   
 */
-#ifndef KERNEL_H
-#define KERNEL_H
 
+#include "panic.h"
+#include <stdio.h>
 #include <stdint.h>
 
-extern "C" int kmain();
 
-
-#endif
+int panic(/*char* reason*/)
+{
+	while(1){}
+	return 0;
+}
