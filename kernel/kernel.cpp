@@ -6,6 +6,7 @@
 */
 #include <stdint.h>
 #include "kernel.h"
+#include "panic.h"
 #include "tty.h"
 #include "graphics.h"
 #include "init.h"
@@ -13,6 +14,7 @@
 extern "C" int kmain()
 {
 	terminal_initialize();
+	
 	/* Initialising modules */
 	modules_init();
 	

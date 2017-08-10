@@ -26,8 +26,18 @@ int fillrect(unsigned char *vram, unsigned char r, unsigned char g, unsigned   c
 	return 0;
 }
 
-int printl(const char* string)
+int printl(const char* string,int color,bool newline)
 {
+
+	terminal_setcolor(color);
  	terminal_writestring(string);
+	if (newline = true)
+	{
+		int width = 80;
+		int nulls = width - strlen(string);
+		for (size_t x = 0; x < nulls; x++) {
+			terminal_putchar(' ');
+		}
+	}
 	return 0;
 }

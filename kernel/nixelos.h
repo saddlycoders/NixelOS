@@ -15,10 +15,5 @@ typedef struct NixelOS_header {
 	int krnl_ver;       //Kernel Version
 }HdrNelOS;
 
-typedef struct regs {
-	int ax;      
-	int bx;      
-	int cx;
-}regs;
 
 #endif
