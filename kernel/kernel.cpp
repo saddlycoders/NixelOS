@@ -6,10 +6,13 @@
 */
 #include <stdint.h>
 #include "kernel.h"
+#include "tty.h"
+#include "graphics.h"
 #include "init.h"
 #include "nixelos.h"
 extern "C" int kmain()
 {
+	terminal_initialize();
 	/* Initialising modules */
 	modules_init();
 	

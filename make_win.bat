@@ -24,9 +24,12 @@
 
     echo --Compilling graphics.cpp
     dev\compillers\mingw\bin\g++ -c kernel/graphics.cpp -o binary/graphics.o -Wall -Wextra -nostdlib
+
+    echo --Compilling tty.cpp
+    dev\compillers\mingw\bin\g++ -c kernel/tty.cpp -o binary/tty.o -Wall -Wextra -nostdlib
 	
     echo --Linking kernel
-	dev\compillers\mingw\bin\ld -Tlink.ld -o binary/krnl.out binary/kernel.o binary/panic.o  binary/init.o binary/memory.o binary/graphics.o binary/gdt.o binary/kasm.elf
+	dev\compillers\mingw\bin\ld -Tlink.ld -o binary/krnl.out binary/kernel.o binary/panic.o  binary/init.o binary/memory.o binary/graphics.o  binary/tty.o binary/gdt.o binary/kasm.elf
     dev\compillers\mingw\bin\objcopy -I elf32-i386 binary/krnl.out binary/kernel.elf
 @echo ***NixelOS Windows Compiler***
 @pause

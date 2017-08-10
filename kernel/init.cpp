@@ -13,10 +13,17 @@
 // This function initialising main modules
 int modules_init()
 {
-	//init GDT (Global Descriptor Table)
+
+	//init GDT (Global Descriptor Table)		
+	printl("[init]Installing GDT");
 	init_gdt();
 	
 	//Getting CMOS Memory
-	getCMOSMemory();
+	int memoryAvalible = getCMOSMemory();
+	if (memoryAvalible < 50000)
+	{
+		printl("[init]To run the Operating System, you must have at least 50 MB of RAM");
+		
+	}
     return 0;	
 }
