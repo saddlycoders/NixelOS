@@ -53,9 +53,9 @@
                      SEG_LONG(0)     | SEG_SIZE(1) | SEG_GRAN(1) | \
                      SEG_PRIV(3)     | SEG_DATA_RDWR
  
+ uint64_t descriptor;
 void create_descriptor(uint32_t base, uint32_t limit, uint16_t flag)
 {
-    uint64_t descriptor;
  
     // Create the high 32 bit segment
     descriptor  =  limit       & 0x000F0000;         // set limit bits 19:16
@@ -84,5 +84,6 @@ int init_gdt()
     create_descriptor(0, 0x000FFFFF, (GDT_CODE_PL3));
     create_descriptor(0, 0x000FFFFF, (GDT_DATA_PL3));
  
+    asm ( "lgdt %0" : : "m"(descriptor) );
     return 0;	
 }

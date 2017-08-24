@@ -186,8 +186,8 @@ unsigned char ide_print_error(unsigned int drive, unsigned char err) {
    if (err == 0)
       return err;
  
-   printl("IDE:",0xF,true);
-   if (err == 1) {printl("- Device Fault     ",0xF,true); err = 19;}
+   printl("[IDE]:",0xF,true);
+   if (err == 1) {printl("- Device not detected     ",0xF,true); err = 19;}
    else if (err == 2) {
       unsigned char st = ide_read(ide_devices[drive].Channel, ATA_REG_ERROR);
       if (st & ATA_ER_AMNF)   {printl("- No Address Mark Found     ",0xF,true);   err = 7;}
@@ -252,7 +252,8 @@ void ide_initialize(unsigned int BAR0, unsigned int BAR1, unsigned int BAR2, uns
    for (i = 0; i < 4; i++)
       if (ide_devices[i].Reserved == 1) {
          printl(" Found %s Drive",0xF,true);
-      }
+      }else{
 	  ide_print_error( i, err);
+	  }
 	  }
 }

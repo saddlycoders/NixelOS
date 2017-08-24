@@ -40,7 +40,10 @@ int modules_init()
 	}
 	printl("[ INFO] ---- Loading modules completed -----",0xF,true);
 		
+	//IDE Initialising
+	printl("[ INFO] ---- IDE initialization started -----",0xF,true);
 	ide_initialize(0x1F0, 0x3F6, 0x170, 0x376, 0x000);
+	printl("[ INFO] ---- IDE initialization complete ----",0xF,true);
 	
     return 0;	//return
 }
