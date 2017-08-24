@@ -27,9 +27,18 @@
 
     echo --Compilling tty.cpp
     dev\compillers\mingw\bin\g++ -c kernel/tty.cpp -o binary/tty.o -Wall -Wextra -nostdlib
+
+    echo --Compilling ATA.cpp
+    dev\compillers\mingw\bin\g++ -c kernel/fs/ATA.cpp -o binary/atad.o -Wall -Wextra -nostdlib
+	
+	echo --Compilling AHCI.cpp
+    dev\compillers\mingw\bin\g++ -c kernel/fs/AHCI.cpp -o binary/AHCI.o -Wall -Wextra -nostdlib
+
+    echo --Compilling io.cpp
+    dev\compillers\mingw\bin\g++ -c kernel/libc++/io.cpp -o binary/io.o -Wall -Wextra -nostdlib
 	
     echo --Linking kernel
-	dev\compillers\mingw\bin\ld -Tlink.ld -o binary/krnl.out binary/kernel.o binary/panic.o  binary/init.o binary/memory.o binary/graphics.o  binary/tty.o binary/gdt.o binary/kasm.elf
+	dev\compillers\mingw\bin\ld -Tlink.ld -o binary/krnl.out binary/kernel.o binary/io.o binary/atad.o binary/panic.o binary/AHCI.o  binary/init.o binary/memory.o binary/graphics.o  binary/tty.o binary/gdt.o binary/kasm.elf
     dev\compillers\mingw\bin\objcopy -I elf32-i386 binary/krnl.out binary/kernel.elf
 @echo ***NixelOS Windows Compiler***
 @pause
