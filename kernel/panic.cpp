@@ -6,12 +6,24 @@
 */
 
 #include "panic.h"
+#include "graphics.h"
 #include <stdio.h>
 #include <stdint.h>
 
 
-int panic(/*char* reason*/)
+int panic()
 {
-	while(1){}
+	/* Show message */
+	
+	printl("Kernel Panic: abort()",0x4,true);
+	
+	/* Show registers */
+	
+	
+	/* Halting */
+    asm("cli"); asm("hlt");
+	
+	/* Fix warning */
 	return 0;
 }
+

@@ -3,6 +3,7 @@
   
   (C) DiamondSoft (R) NixelOS 2017 - 2018 y.
   
+  
 */
 #include <stdint.h>
 #include "kernel.h"
@@ -13,14 +14,21 @@
 #include "nixelos.h"
 extern "C" int kmain()
 {
+	
+	/* Clean the screen and initialize terminal */
 	terminal_initialize();
+	
+	/* Display the welcome text */
+	printl("NixelOS kernel has started",0x2,true);
+	printl("[Warning] You use an unstable version compiled on GitHub",0xF,true);
 	
 	/* Initialising modules */
 	modules_init();
 	
-	/* End of Kernel */
-    while(1){}
-	return 0;
+	
+	/* If we are thrown out here, we cause panic */
+    panic();
+	
 }
 
 

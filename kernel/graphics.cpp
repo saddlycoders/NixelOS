@@ -25,13 +25,13 @@ int fillrect(unsigned char *vram, unsigned char r, unsigned char g, unsigned   c
     }
 	return 0;
 }
-
+/* Print in screen */
 int printl(const char* string,int color,bool newline)
 {
 
 	terminal_setcolor(color);
  	terminal_writestring(string);
-	if (newline = true)
+	if (newline)
 	{
 		int width = 80;
 		int nulls = width - strlen(string);

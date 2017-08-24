@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-int panic(/*char* reason*/);
+int panic();
+
 
 #endif

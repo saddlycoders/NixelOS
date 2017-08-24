@@ -6,6 +6,7 @@
 */
 
 #include "gdt.h"
+#include "graphics.h"
 #include <stdio.h>
 #include <stdint.h>
  
@@ -69,9 +70,12 @@ void create_descriptor(uint32_t base, uint32_t limit, uint16_t flag)
     descriptor |= base  << 16;                       // set base bits 15:0
     descriptor |= limit  & 0x0000FFFF;               // set limit bits 15:0
  
-   // printf("0x%.16llX\n", descriptor);
+    printl("# Created new descriptor in GDT #",0xF,true);
 }
  
+/*
+   Set GDT table
+*/
 int init_gdt()
 {
     create_descriptor(0, 0, 0);
