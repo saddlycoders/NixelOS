@@ -186,20 +186,20 @@ unsigned char ide_print_error(unsigned int drive, unsigned char err) {
    if (err == 0)
       return err;
  
-   printl("[IDE]:",0xF,true);
-   if (err == 1) {printl("- Device not detected     ",0xF,true); err = 19;}
+   printk("[IDE]: ");
+   if (err == 1) {printk("- Device not detected \n"); err = 19;}
    else if (err == 2) {
       unsigned char st = ide_read(ide_devices[drive].Channel, ATA_REG_ERROR);
-      if (st & ATA_ER_AMNF)   {printl("- No Address Mark Found     ",0xF,true);   err = 7;}
-      if (st & ATA_ER_TK0NF)   {printl("- No Media or Media Error     ",0xF,true);   err = 3;}
-      if (st & ATA_ER_ABRT)   {printl("- Command Aborted     ",0xF,true);      err = 20;}
-      if (st & ATA_ER_MCR)   {printl("- No Media or Media Error     ",0xF,true);   err = 3;}
-      if (st & ATA_ER_IDNF)   {printl("- ID mark not Found     ",0xF,true);      err = 21;}
-      if (st & ATA_ER_MC)   {printl("- No Media or Media Error     ",0xF,true);   err = 3;}
-      if (st & ATA_ER_UNC)   {printl("- Uncorrectable Data Error     ",0xF,true);   err = 22;}
-      if (st & ATA_ER_BBK)   {printl("- Bad Sectors     ",0xF,true);       err = 13;}
-   } else  if (err == 3)           {printl("- Reads Nothing     ",0xF,true); err = 23;}
-     else  if (err == 4)  {printl("- Write Protected     ",0xF,true); err = 8;}
+      if (st & ATA_ER_AMNF)   {printk("- No Address Mark Found    \n ");   err = 7;}
+      if (st & ATA_ER_TK0NF)   {printk("- No Media or Media Error    \n ");   err = 3;}
+      if (st & ATA_ER_ABRT)   {printk("- Command Aborted    \n ");      err = 20;}
+      if (st & ATA_ER_MCR)   {printk("- No Media or Media Error    \n ");   err = 3;}
+      if (st & ATA_ER_IDNF)   {printk("- ID mark not Found     \n");      err = 21;}
+      if (st & ATA_ER_MC)   {printk("- No Media or Media Error    \n ");   err = 3;}
+      if (st & ATA_ER_UNC)   {printk("- Uncorrectable Data Error    \n ");   err = 22;}
+      if (st & ATA_ER_BBK)   {printk("- Bad Sectors    \n ");       err = 13;}
+   } else  if (err == 3)           {printk("- Reads Nothing     \n"); err = 23;}
+     else  if (err == 4)  {printk("- Write Protected    \n "); err = 8;}
  
    return err;
 }
@@ -251,7 +251,7 @@ void ide_initialize(unsigned int BAR0, unsigned int BAR1, unsigned int BAR2, uns
    // 4- Print Summary:
    for (i = 0; i < 4; i++)
       if (ide_devices[i].Reserved == 1) {
-         printl(" Found %s Drive",0xF,true);
+         printk(" Found %s Drive\n");
       }else{
 	  ide_print_error( i, err);
 	  }

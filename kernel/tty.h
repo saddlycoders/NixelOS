@@ -11,7 +11,7 @@
 #include <stdint.h>
 
 int terminal_initialize();
-int terminal_setcolor(uint8_t color);
+int SetPrintColor(uint8_t color);
 int terminal_putentryat(unsigned char c, uint8_t color, size_t x, size_t y);
 int terminal_putchar(char c);
 int terminal_write(const char* data, size_t size);

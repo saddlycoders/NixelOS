@@ -34,7 +34,7 @@ int terminal_initialize() {
 	return 0;
 }
  
-int terminal_setcolor(uint8_t color) {
+int SetPrintColor(uint8_t color) {
 	terminal_color = color;
 	return 0;
 }
@@ -47,11 +47,15 @@ int terminal_putentryat(unsigned char c, uint8_t color, size_t x, size_t y) {
  
 int terminal_putchar(char c) {
 	unsigned char uc = c;
+	if (uc == '\n') { terminal_row++; terminal_column = 0; }
+	else
+	{
 	terminal_putentryat(uc, terminal_color, terminal_column, terminal_row);
 	if (++terminal_column == VGA_WIDTH) {
 		terminal_column = 0;
 		if (++terminal_row == VGA_HEIGHT)
 			terminal_row = 0;
+	}
 	}
 	return 0;
 }

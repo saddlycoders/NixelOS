@@ -6,6 +6,7 @@
 */
 
 #include "panic.h"
+#include "tty.h"
 #include "graphics.h"
 #include <stdio.h>
 #include <stdint.h>
@@ -14,8 +15,8 @@
 int panic()
 {
 	/* Show message */
-	
-	printl("Kernel Panic: abort()",0x4,true);
+	SetPrintColor(0xD);
+	printk("\n Kernel Panic: abort()");
 	
 	/* Show registers */
 	

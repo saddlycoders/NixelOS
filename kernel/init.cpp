@@ -17,11 +17,11 @@
 // This function initialising main modules
 int modules_init()
 {
-	printl("[ INFO] ----- Loading modules started -----",0xF,true);
+	printk("[ INFO] ----- Loading modules started -----\n");
 
 
 	//init GDT (Global Descriptor Table)		
-	printl("[ INFO] Installing GDT",0xF,true);
+	printk("[ INFO] Installing GDT\n");
 	init_gdt();
 	
 	//Get the amount of RAM through CMOS
@@ -31,19 +31,18 @@ int modules_init()
 	//Checking the minimum amount of RAM
 	if (memoryAvalible < 50000) //50 MB of RAM is minimal
 	{
-		printl("[ INFO] To run the Operating System, you must have at least 50 MB of RAM",0xF,true);
+		printk("[ INFO] To run the Operating System, you must have at least 50 MB of RAM\n");
 		panic(); //Kernel panic
 	}
 	else
 	{
-	    printl("[ INFO] RAM is suitable for work",0xF,true);	
+	    printk("[ INFO] RAM is suitable for work\n");	
 	}
-	printl("[ INFO] ---- Loading modules completed -----",0xF,true);
+	printk("[ INFO] ---- Loading modules completed -----\n");
 		
 	//IDE Initialising
-	printl("[ INFO] ---- IDE initialization started -----",0xF,true);
-	ide_initialize(0x1F0, 0x3F6, 0x170, 0x376, 0x000);
-	printl("[ INFO] ---- IDE initialization complete ----",0xF,true);
-	
+	//ide_initialize(0x1F0, 0x3F6, 0x170, 0x376, 0x000);
+
+	printk("[ INFO] Initialisation completed\n");	
     return 0;	//return
 }

@@ -16,7 +16,7 @@ int fillrect(unsigned char *vram, unsigned char r, unsigned char g, unsigned   c
  
     for (i = 0; i < w; i++) {
         for (j = 0; j < h; j++) {
-            //putpixel(vram, 64 + j, 64 + i, (r << 16) + (g << 8) + b);
+            //putpixel16(vram, 64 + j, 64 + i, (r << 16) + (g << 8) + b);
             where[j*4] = r;
             where[j*4 + 1] = g;
             where[j*4 + 2] = b;
@@ -25,19 +25,10 @@ int fillrect(unsigned char *vram, unsigned char r, unsigned char g, unsigned   c
     }
 	return 0;
 }
-/* Print in screen */
-int printl(const char* string,int color,bool newline)
-{
 
-	terminal_setcolor(color);
- 	terminal_writestring(string);
-	if (newline)
-	{
-		int width = 80;
-		int nulls = width - strlen(string);
-		for (size_t x = 0; x < nulls; x++) {
-			terminal_putchar(' ');
-		}
-	}
+int printk(const char* format, ...)
+{
+	terminal_write(format, strlen(format));	
 	return 0;
 }
+

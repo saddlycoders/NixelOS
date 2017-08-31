@@ -9,7 +9,7 @@
 
 #include <stdint.h>
 
-extern "C" int kmain();
+extern "C" int kmain(struct multiboot *mboot_ptr);
 
 
 #endif

@@ -70,7 +70,7 @@ void create_descriptor(uint32_t base, uint32_t limit, uint16_t flag)
     descriptor |= base  << 16;                       // set base bits 15:0
     descriptor |= limit  & 0x0000FFFF;               // set limit bits 15:0
  
-    printl("# Created new descriptor in GDT #",0xF,true);
+    printk("# Created new descriptor in GDT \n");
 }
  
 /*
