@@ -15,7 +15,7 @@
 #define FS_SYMLINK     0x06 //Ссылка
 #define FS_MOUNTPOINT  0x08 // Файл точка монтирования
 
-
+ 
 fs_node_t *fs_root = 0; // The root of the filesystem.
 
 uint32_t read_vfs(fs_node_t *node, uint32_t offset, uint32_t size, uint8_t *buffer)

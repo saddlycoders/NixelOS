@@ -1,4 +1,4 @@
-/*
+﻿/*
   The NixelOS Main C++ kernel
   
   (C) DiamondSoft (R) NixelOS 2017 - 2018 y.
@@ -14,7 +14,7 @@
 
 int getCMOSMemory()
 {
-    unsigned short total;
+    /*unsigned short total;
     unsigned char lowmem, highmem;
  
     outb(0x70, 0x30);
@@ -23,7 +23,8 @@ int getCMOSMemory()
     highmem = inb(0x71);
  
     total = lowmem | highmem << 8;
-    return total;
+    return total;*/
+    return 500000;
 }
 
   uint32_t placement_address; 

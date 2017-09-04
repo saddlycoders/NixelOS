@@ -23,7 +23,9 @@ loader:
    mov esp,stack+STACKSIZE
    push eax
    push ebx
-	
+
+
+
    jmp _kmain
    
    cli
@@ -37,3 +39,4 @@ section .bss
 align 4
 stack:
  resb STACKSIZE
+ 

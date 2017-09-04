@@ -4,10 +4,12 @@
   (C) DiamondSoft (R) NixelOS 2017 - 2018 y.
   
 */
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
-
+#ifndef KBD_H
+#define KBD_H
+#include "lakesh/lakesh.h"
 #include <stdio.h>
 #include <stdint.h>
-int printk(const char* format);
+
+int readStr();
+
 #endif
