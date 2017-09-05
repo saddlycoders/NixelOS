@@ -8,12 +8,20 @@
 #include "init.h"
 #include "memory.h"
 #include "graphics.h"
+#include "gdt.h"
 #include "panic.h"
 #include "isr.h"
 
 // This function initialising main modules
 int modules_init()
 {
+	//initialize GDT descriptors
+	printk("[ INFO] Initialising GDT descriptors \n");
+	install_gdt();
+	
+	//install GDT
+	printk("[ INFO] Installing GDT \n");
+	loadGDT();
 	
 	//install ISR
 	printk("[ INFO] Installing ISR \n");

@@ -5,7 +5,6 @@
   
 */
 #include "../libc++/io.h"
-#include "../kbd.h"
 #include "../graphics.h"
 #include <stdio.h>
 #include <stdint.h>
@@ -16,7 +15,7 @@ int lakesh_init()
 	
     do
 	{
-		readStr();
+		
 		
     }while(ErrorCode = 1);
     return 0;	
